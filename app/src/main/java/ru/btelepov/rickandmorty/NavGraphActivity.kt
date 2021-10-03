@@ -2,12 +2,15 @@ package ru.btelepov.rickandmorty
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
 
 class NavGraphActivity : AppCompatActivity() {
 
@@ -21,11 +24,13 @@ class NavGraphActivity : AppCompatActivity() {
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
-        appBarConfiguration = AppBarConfiguration(navController.graph)
+        val drawerLayout = findViewById<DrawerLayout>(R.id.drawer_layout)
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(
             navController = navController,
             configuration = appBarConfiguration
         )
+        findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
 
     }
 

@@ -15,11 +15,9 @@ class CharacterDetailsFragment : Fragment() {
 
     private var _binding: FragmentCharacterDetailsBinding? = null
     private val binding get() = _binding!!
-
     private val viewModel: SharedViewModel by lazy {
         ViewModelProvider(this).get(SharedViewModel::class.java)
     }
-
     private val epoxyController = CharacterDetailsEpoxyController()
 
 
@@ -27,7 +25,6 @@ class CharacterDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentCharacterDetailsBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

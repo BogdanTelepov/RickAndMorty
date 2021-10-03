@@ -12,11 +12,19 @@
         tools:layout="@layout/fragment_character_list">
         <action
             android:id="@+id/action_characterListFragment_to_characterDetailsFragment"
-            app:destination="@id/characterDetailsFragment" />
+            app:destination="@id/characterDetailsFragment"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
+            app:popEnterAnim="@anim/slide_in_from_left"
+            app:popExitAnim="@anim/slide_out_to_right" />
     </fragment>
+
     <fragment
         android:id="@+id/characterDetailsFragment"
         android:name="ru.btelepov.rickandmorty.CharacterDetailsFragment"
         android:label="Character Details"
-        tools:layout="@layout/fragment_character_details" />
+        tools:layout="@layout/fragment_character_details">
+
+        <deepLink app:uri="https://rickandmorty.com/character/{characterId}" />
+    </fragment>
 </navigation>
